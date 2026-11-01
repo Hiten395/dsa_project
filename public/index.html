@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Structure Lab — Data structure visualiser</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <section class="workspace" aria-label="Data structure visualiser">
+      <aside class="rail">
+        <div class="rail-label">CHOOSE A STRUCTURE</div>
+        <button class="structure-tab active" data-panel="list-panel"><span class="tab-number">01</span><span><strong>Linked lists</strong><small>Linear sequences</small></span><span class="tab-arrow">↗</span></button>
+        <button class="structure-tab" data-panel="tree-panel"><span class="tab-number">02</span><span><strong>Binary search tree</strong><small>Ordered binary tree</small></span><span class="tab-arrow">↗</span></button>
+        <div class="rail-footer"><br></div>
+      </aside>
+
+      <div class="panel-area">
+        <section class="panel active" id="list-panel">
+          <div class="panel-heading">
+            <div><div class="eyebrow">STRUCTURE 01 <span>/</span> SEQUENTIAL</div><h2>Linked lists</h2></div>
+            <div class="count-chip"><span id="list-count">05</span><small> NODES</small></div>
+          </div>
+          <div class="toolbar">
+            <label class="select-wrap"><span>LIST TYPE</span><select id="list-type"><option value="singly">Singly linked</option><option value="doubly">Doubly linked</option><option value="circular">Circular</option></select></label>
+            <div class="toolbar-separator"></div>
+            <div class="op-group"><label for="list-value">VALUE</label><input id="list-value" type="number" placeholder="e.g. 42"><button class="action-button" id="list-insert">Insert <span>↗</span></button></div>
+            <div class="op-group compact"><label for="list-target">TARGET</label><input id="list-target" type="number" placeholder="value"><button class="text-button" id="list-delete">Delete</button></div>
+            <div class="op-group compact"><label for="list-update">REPLACE WITH</label><input id="list-update" type="number" placeholder="new value"><button class="text-button" id="list-update-button">Update</button></div>
+          </div>
+          <div class="canvas-head"><span>POINTER MAP</span><span class="canvas-hint">SELECT A NODE TO INSPECT</span></div>
+          <div class="list-canvas" id="list-canvas" aria-label="Linked list visualization"></div>
+          <div class="panel-bottom">
+            <div class="traverse-block"><span class="eyebrow">TRAVERSE</span><div class="traverse-actions"><button class="outline-button" id="list-traverse">Walk list <span>→</span></button><button class="ghost-button" id="list-reset">Reset example</button></div></div>
+            <div class="readout"><span class="eyebrow">OUTPUT</span><div id="list-output" class="output-line">8 → 14 → 21 → 33 → 47</div></div>
+          </div>
+          <div class="status-line" id="list-status" aria-live="polite">Ready. Select a node or apply an operation.</div>
+        </section>
+
+        <section class="panel" id="tree-panel">
+          <div class="panel-heading">
+            <div><div class="eyebrow">STRUCTURE 02 <span>/</span> BINARY SEARCH</div><h2>Binary search tree</h2></div>
+            <div class="count-chip"><span id="tree-count">11</span><small> KEYS</small></div>
+          </div>
+          <div class="toolbar tree-toolbar">
+            <div class="tree-note">ONE KEY PER NODE <span>·</span> LEFT &lt; PARENT &lt; RIGHT</div>
+            <div class="toolbar-separator"></div>
+            <div class="op-group"><label for="tree-value">KEY</label><input id="tree-value" type="number" placeholder="e.g. 42"><button class="action-button" id="tree-insert">Insert <span>↗</span></button></div>
+            <div class="op-group compact"><label for="tree-target">TARGET KEY</label><input id="tree-target" type="number" placeholder="key"><button class="text-button" id="tree-delete">Delete</button></div>
+            <div class="op-group compact"><label for="tree-update">REPLACE WITH</label><input id="tree-update" type="number" placeholder="new key"><button class="text-button" id="tree-update-button">Update</button></div>
+          </div>
+          <div class="canvas-head"><span>TREE MAP</span><span class="canvas-hint">LEFT CHILD &lt; NODE &lt; RIGHT CHILD</span></div>
+          <div class="tree-canvas" id="tree-canvas" aria-label="Binary search tree visualization"></div>
+          <div class="panel-bottom tree-bottom">
+            <div class="traverse-block"><span class="eyebrow">TRAVERSE</span><div class="traverse-actions"><select id="tree-traversal" class="traversal-select"><option value="inorder">Inorder</option><option value="preorder">Preorder</option><option value="postorder">Postorder</option><option value="levelorder">Level order</option></select><button class="outline-button" id="tree-traverse">Run traversal <span>→</span></button></div></div>
+            <div class="readout"><span class="eyebrow">OUTPUT</span><div id="tree-output" class="output-line">Select a traversal to inspect the keys.</div></div>
+          </div>
+          <div class="status-line" id="tree-status" aria-live="polite">Ready. Insert, remove, or update a key.</div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

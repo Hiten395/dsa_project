@@ -1,0 +1,12 @@
+{
+  "name": "structure-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A visual lab for linked lists and binary search trees",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
